@@ -1,0 +1,9 @@
+.chat {
+    /* width: 100%; */
+    background-image: url(/public/img/bg2.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: brightness(70%);
+    width: 100%; 
+}

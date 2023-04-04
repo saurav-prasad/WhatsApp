@@ -1,0 +1,26 @@
+.side {
+    background-color: #f3f3f3;
+    /* background-color: black; */
+    padding: 25px 8px;
+}
+
+.side,
+.sideTop,
+.sideBottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Side Top */
+.sideTop {}
+
+.chatIcon,
+.userIcon,
+.statusIcon,
+.logoutIcon {
+    margin: 10px 0px;
+    cursor: pointer;
+    color: rgb(0, 0, 0);
+}

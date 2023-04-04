@@ -1,0 +1,29 @@
+.sidebarchat{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 5px 0px;
+}
+.sidechatInfo{
+    margin-left: 5px;
+}
+.sidechatInfo h3{
+font-weight: 500;
+}
+.sidechatInfo p{
+    margin-top: 2px;
+    font-size: 11px;
+}
+hr{
+    background-color: transparent;
+    display: block;
+    height: 1px;
+    border-width: 0;
+    border-top: 1px solid #e7e7e75e;
+    line-height: 19px;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+.sidechatSpan{
+    cursor: pointer;
+}
