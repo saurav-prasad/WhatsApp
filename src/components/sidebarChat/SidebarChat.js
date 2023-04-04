@@ -6,7 +6,6 @@ import { useCartState } from '../../context/cartState';
 
 function SidebarChat(props) {
     const [{ cardDisplay }, dispatch] = useCartState()
-    console.log(cardDisplay);
     const a = () => {
         console.log("object", cardDisplay);
         dispatch({
