@@ -4,16 +4,24 @@ export const initialState = {
     },
     dpImg: null,
     dpName: null,
-    appContainer: { filter: 'brightness(100%)' }
+    appContainer: { filter: 'brightness(100%)' },
+    chatImg: null,
+    chatName: null,
 }
 
 const reducer = (state, action) => {
     switch (action.type) {
         case 'SET_CARD':
-            console.log("object");
             return {
+                ...initialState,
+                chatImg: action.chatImg, chatName: action.chatName,
                 cardDisplay: { display: 'block' }
-                , dpImg: action.dpImg, dpName: action.dpName, appContainer: { filter: 'brightness(20%)', transition: 'filter 0.35s ease' }
+                , dpImg: action.dpImg, dpName: action.dpName, appContainer: { filter: 'brightness(20%)', transition: 'filter 0.35 s ease' },
+
+            }
+        case 'SET_CHAT':
+            return {
+                chatName: action.chatName, chatImg: action.chatImg,
             }
         case 'UNSET_CARD':
             return {

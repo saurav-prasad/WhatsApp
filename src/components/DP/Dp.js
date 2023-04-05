@@ -1,11 +1,10 @@
-import React, { useState } from 'react'
+import React from 'react'
 import './dp.css'
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 import { useCartState } from '../../context/cartState';
 
 function Dp() {
     const [{ cardDisplay, dpImg, dpName }, dispatch] = useCartState()
-    console.log("card", cardDisplay);
     const toggleCard = () => {
         dispatch({
             type: "UNSET_CARD",

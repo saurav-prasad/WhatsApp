@@ -1,20 +1,28 @@
-.sidebarchat{
+.sidebarchat {
     display: flex;
     justify-content: flex-start;
     align-items: center;
     margin: 5px 0px;
 }
-.sidechatInfo{
+
+.sidechatInfo {
+    user-select: none;
+    padding: 5px 0;
+    width: 100%;
+    cursor: pointer;
     margin-left: 5px;
 }
-.sidechatInfo h3{
-font-weight: 500;
+
+.sidechatInfo h3 {
+    font-weight: 500;
 }
-.sidechatInfo p{
+
+.sidechatInfo p {
     margin-top: 2px;
     font-size: 11px;
 }
-hr{
+
+hr {
     background-color: transparent;
     display: block;
     height: 1px;
@@ -24,6 +32,7 @@ hr{
     margin-top: 0;
     margin-bottom: 10px;
 }
-.sidechatSpan{
+
+.sidechatSpan {
     cursor: pointer;
 }
