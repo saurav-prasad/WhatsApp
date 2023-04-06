@@ -14,24 +14,18 @@ function SidebarChat(props) {
         dispatch({
             type: "SET_CARD",
             dpImg: props.dp,
-            dpName: props.name,
+            dpName: props.roomName,
         })
     }
     const navigate = useNavigate();
     const setChat = () => {
-        if(window.screen.width >= 600){
-            navigate('/')
-        }
-        else{
-            navigate('/mobile-messages')
-
-        }
         dispatch1({
             type: "SET_CHAT",
             chatImg: props.dp,
-            chatName: props.name,
+            chatName: props.roomName,
         })
     }
+    // console.log("props",props.roomName);
     return (
         <>
             <div className='sidebarchat'>
@@ -44,11 +38,11 @@ function SidebarChat(props) {
                 </span>
                 
                     <div className="sidechatInfo" onClick={setChat} >
-                        <h4>{props.name}</h4>
+                        <h4>{props.roomName}</h4>
                         <p>{props.message}</p>
                     </div>
             </div>
-            <hr aria-hidden="true" class="a-spacing-small a-divider-normal" />
+            <hr aria-hidden="true" className="a-spacing-small a-divider-normal" />
         </>
     )
 }

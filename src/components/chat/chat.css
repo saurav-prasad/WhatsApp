@@ -1,5 +1,5 @@
 .chat {
-    display: flex;
+     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
@@ -8,7 +8,7 @@
 
 @media (max-width:600px) {
     .chat {
-        display: none;
+        /* display: none; */
     }
 
     .leftarrowIcon {
@@ -18,29 +18,18 @@
     .chatHeader {
         padding-left: 0;
     }
-
+    ::-webkit-scrollbar {
+        display: none;
+    }
+    
 }
 
 @media (min-width:600px) {
     .chat {
-        display: flex;
+        /* display: flex; */
     }
 }
 
-.chatTextContainer::before {
-    content: "";
-    top: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    position: absolute;
-    background-image: url(/public/img/bg2.svg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    filter: brightness(80%);
-}
 
 .chatContainer {
     display: flex;
@@ -152,4 +141,66 @@
     margin-right: 3px;
     padding: 5px;
     padding-left: 1px;
+}
+
+
+.chatTextContainer::before {
+    content: "";
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    position: absolute;
+    background-image: url(/public/img/bg2.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: brightness(80%);
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.chatArea {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    padding: 20px 0px;
+    padding-bottom: 0px;
+}
+
+.chatMessage {
+    position: relative;
+    padding: 10px;
+    background-color: #fcfcfc;
+    width: fit-content;
+    max-width: 70%;
+    border-radius: 8px;
+    margin: 0px 10px;
+    margin-bottom: 35px;
+    padding-right: 38px;
+}
+.chatReceiver{
+    margin-left: auto !important;
+    background-color: #b2f1a7;
+}
+.chatSenderName {
+    background-color: #ffffff24;
+    border-radius: 5px;
+    padding: 4px;
+    position: absolute;
+    top: -22px;
+    left: 0;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.chatTime {
+    color: #868585;
+    position: absolute;
+    bottom: 5px;
+    right: 6px;
+    font-size: 10.5px;
 }
