@@ -23,6 +23,7 @@ function Chat() {
             dpName: chatName,
         })
     }
+
     document.addEventListener('keyup', (e) => {
         if (e.key === 'Enter') {
             setInput('')
@@ -31,13 +32,18 @@ function Chat() {
     const setSendBtn = () => {
         setInput('')
     }
+    const hideChat = ()=>{
+        document.getElementById('sidebar').style.display = 'flex'
+        document.getElementById('side').style.display = 'flex'
+        document.getElementById('chat').style.display = 'none'
+    }
     return (
         <>
             <div className='chat' id='chat'>
                 <div className="chatContainer">
-                    {/* Chat herder */}
+                    {/* Chat header */}
                     <div className="chatHeader">
-                        <ArrowBackRoundedIcon className='leftarrowIcon' />
+                        <ArrowBackRoundedIcon onClick={hideChat} className='leftarrowIcon' />
                         <Avatar className='chatAvatar'
                             onClick={sidebarChatAvatar}
                             alt="Remy Sharp"
@@ -59,18 +65,8 @@ function Chat() {
                 <div className='chatTextContainer'></div>
                 <div className="chatArea">
                     {/* Chat message appears here */}
-                    <p className='chatMessage' >
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius pariatur ut quas aliquam a, ducimus repudiandae ab hic earum labore. Provident rerum voluptatibus enim libero excepturi officiis similique ipsum quaerat!
-                        <span className='chatSenderName'>Saurav Prasad</span>
-                        <span className='chatTime'>11:25</span>
-                    </p>
-                    <p className='chatMessage' >
-                        Lorem ipsum dolor sit amet co Provident rerum voluptatibus enim libero excepturi officiis similique ipsum quaerat!
-                        <span className='chatSenderName'>Saurav Prasad</span>
-                        <span className='chatTime'>11:25</span>
-                    </p>
                     <p className='chatMessage chatReceiver' >
-                        Hello how are you ?🙋🏻‍♀️
+                        Hello world!
                         <span className='chatSenderName'>Saurav Prasad</span>
                         <span className='chatTime'>11:25</span>
                     </p>

@@ -17,7 +17,7 @@ function Side() {
     }
     return (
         <>
-            <div className="side">
+            <div className="side" id='side'>
                 <div className="sideTop">
                     <SpeakerNotesOutlinedIcon fontSize='medium' className='chatIcon' />
                     <DonutLargeIcon className='statusIcon' />

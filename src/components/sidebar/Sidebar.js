@@ -38,7 +38,7 @@ function Sidebar() {
 
     return (
         <>
-            <div className='sidebar'>
+            <div className='sidebar' id='sidebar'>
                 <div className="sidebarHeader">
                     <h3>Chats</h3>
                     <div className='sectionHeaderRight'>
