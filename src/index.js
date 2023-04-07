@@ -10,10 +10,10 @@ import reducer1, { initialState1 } from './context copy/reducer';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <CartState1 reducer={reducer1} initialState={initialState1}>
       <CartState reducer={reducer} initialState={initialState}>
+    <CartState1 reducer={reducer1} initialState={initialState1}>
         <App />
-      </CartState>
     </CartState1>
+      </CartState>
   </React.StrictMode>
 );

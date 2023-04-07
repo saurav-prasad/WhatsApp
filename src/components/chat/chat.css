@@ -7,10 +7,6 @@
 }
 
 @media (max-width:600px) {
-    .chat {
-        /* display: none; */
-    }
-
     .leftarrowIcon {
         display: block;
     }
@@ -23,13 +19,6 @@
     }
     
 }
-
-@media (min-width:600px) {
-    .chat {
-        /* display: flex; */
-    }
-}
-
 
 .chatContainer {
     display: flex;
@@ -188,7 +177,7 @@
 }
 .chatSenderName {
     background-color: #ffffff24;
-    border-radius: 5px;
+    border-radius: 8px;
     padding: 4px;
     position: absolute;
     top: -22px;

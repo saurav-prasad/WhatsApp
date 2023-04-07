@@ -13,9 +13,7 @@ import ArrowBackRoundedIcon from '@mui/icons-material/ArrowBackRounded';
 import SendRoundedIcon from '@mui/icons-material/SendRounded';
 
 function Chat() {
-    const [sendBtnDisplay, setsendBtnDisplay] = useState({ sendbutton: { display: 'none' }, micbutton: { display: 'block' }, })
     const [input, setInput] = useState("")
-
     const [{ chatImg, chatName }, dispatch] = useCartState1()
     const [{ }, dispatch1] = useCartState()
     const sidebarChatAvatar = () => {
@@ -25,15 +23,13 @@ function Chat() {
             dpName: chatName,
         })
     }
+    document.addEventListener('keyup', (e) => {
+        if (e.key === 'Enter') {
+            setInput('')
+        }
+    })
     const setSendBtn = () => {
         setInput('')
-        document.addEventListener('keyup', (e) => {
-            if (e.key === 'Enter') {
-                setInput('')
-                setsendBtnDisplay({ sendbutton: { display: 'none' }, micbutton: { display: 'block' }, })
-            }
-        })
-        setsendBtnDisplay({ sendbutton: { display: 'block' }, micbutton: { display: 'none' }, })
     }
     return (
         <>
@@ -68,8 +64,13 @@ function Chat() {
                         <span className='chatSenderName'>Saurav Prasad</span>
                         <span className='chatTime'>11:25</span>
                     </p>
+                    <p className='chatMessage' >
+                        Lorem ipsum dolor sit amet co Provident rerum voluptatibus enim libero excepturi officiis similique ipsum quaerat!
+                        <span className='chatSenderName'>Saurav Prasad</span>
+                        <span className='chatTime'>11:25</span>
+                    </p>
                     <p className='chatMessage chatReceiver' >
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius pariatur ut quas aliquam a, ducimus repudiandae ab hic earum labore. Provident rerum voluptatibus enim libero excepturi officiis similique ipsum quaerat!
+                        Hello how are you ?🙋🏻‍♀️
                         <span className='chatSenderName'>Saurav Prasad</span>
                         <span className='chatTime'>11:25</span>
                     </p>
@@ -82,8 +83,8 @@ function Chat() {
                         {/* input bar */}
                         <input value={input} onChange={(e) => { setSendBtn(); setInput(e.target.value) }} type="text" placeholder='Type a message' className='chatInput' />
 
-                        <MicRoundedIcon style={sendBtnDisplay.micbutton} sx={{ width: 23, height: 23 }} className='chatIcon' />
-                        <SendRoundedIcon onClick={setSendBtn} style={sendBtnDisplay.sendbutton} sx={{ width: 23, height: 23 }} className='chatIcon' />
+                        <MicRoundedIcon  style={input.length <1 ?{display:"block"}:{display:'none'}} sx={{ width: 23, height: 23 }} className='chatIcon' />
+                        <SendRoundedIcon onClick={setSendBtn} style={input.length <1 ?{display:"none"}:{display:'block'}} sx={{ width: 23, height: 23 }} className='chatIcon' />
                     </div>
                 </div>
             </div>

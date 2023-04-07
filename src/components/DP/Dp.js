@@ -18,7 +18,7 @@ function Dp() {
                         <h3>{dpName}</h3>
                         <CloseRoundedIcon onClick={toggleCard} className='crossIcon' />
                     </div>
-                    <img className='dpImg' src={dpImg} alt="" />
+                    <img className='dpImg' src={dpImg ? dpImg : '/img/defaultUserDp.svg'} alt="DP not available" />
                 </div>
             </div>
         </>

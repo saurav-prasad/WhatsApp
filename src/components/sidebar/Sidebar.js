@@ -13,10 +13,13 @@ function Sidebar() {
     const [newRoomName, setNewRoomName] = useState('')
     const [createChatDisplay, setCreateChatDisplay] = useState({ display: 'none' })
     useEffect(() => {
+        const unsubscribe = ()=>{
         const q = query(collection(db, "rooms"),);
         onSnapshot(q, (querySnapshot) => {
             setData(querySnapshot.docs.map((e) => ({ roomName: e.data().roomName, id: e.id, roomDp: e.data().roomDp })));
         })
+    }
+    return ()=> unsubscribe()
     }, [])
 
     const createChat = () => {
@@ -24,9 +27,12 @@ function Sidebar() {
     }
     const newRoom = async () => {
         // * CREATE
+        if(newRoomName){
         await addDoc(collection(db, "rooms"), {
             roomName: newRoomName,
         });
+    }
+    setNewRoomName('')
         setCreateChatDisplay({ display: 'none' })
     }
 

@@ -3,11 +3,10 @@ import React from 'react'
 import './sidebarchat.css'
 import { useCartState } from '../../context/cartState';
 import { useCartState1 } from '../../context copy/cartState';
-import { useNavigate } from 'react-router-dom';
 
 function SidebarChat(props) {
     const [{ cardDisplay }, dispatch] = useCartState()
-    const [{ chatImg, chatName }, dispatch1] = useCartState1()
+    const [{}, dispatch1] = useCartState1()
 
     const sidebarChatAvatar = () => {
         console.log("object", cardDisplay);
@@ -17,7 +16,6 @@ function SidebarChat(props) {
             dpName: props.roomName,
         })
     }
-    const navigate = useNavigate();
     const setChat = () => {
         dispatch1({
             type: "SET_CHAT",
@@ -25,7 +23,7 @@ function SidebarChat(props) {
             chatName: props.roomName,
         })
     }
-    // console.log("props",props.roomName);
+    
     return (
         <>
             <div className='sidebarchat'>
