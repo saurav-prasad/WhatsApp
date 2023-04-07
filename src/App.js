@@ -8,13 +8,15 @@ import Side from './components/Side/Side';
 import Chat from './components/chat/Chat';
 import Sidebar from './components/sidebar/Sidebar';
 import { useCartState } from './context/cartState';
+import Login from './components/login/Login';
+
 
 function App() {
   const [{ appContainer }, dispatch] = useCartState()
   return (
     <>
       <div className="App">
-        <RouterProvider router={
+        {/* <RouterProvider router={
           createBrowserRouter([
             {
               path: "/",
@@ -31,7 +33,8 @@ function App() {
               path: '/mobile-messages',
               element: '',
             },
-          ])} />
+          ])} /> */}
+          <Login/>
       </div>
     </>
   );

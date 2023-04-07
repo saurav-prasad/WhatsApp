@@ -13,7 +13,7 @@ const reducer = (state, action) => {
     switch (action.type) {
         case 'SET_CARD':
             return {
-                ...initialState,
+                ...state,
                 chatImg: action.chatImg, chatName: action.chatName,
                 cardDisplay: { display: 'block' }
                 , dpImg: action.dpImg, dpName: action.dpName, appContainer: { filter: 'brightness(20%)', transition: 'filter 0.35 s ease' },
