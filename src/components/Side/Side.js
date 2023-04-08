@@ -4,6 +4,7 @@ import DonutLargeIcon from '@mui/icons-material/DonutLarge';
 import SpeakerNotesOutlinedIcon from '@mui/icons-material/SpeakerNotesOutlined'; import PowerSettingsNewOutlinedIcon from '@mui/icons-material/PowerSettingsNewOutlined';
 import { Avatar } from '@mui/material';
 import { useCartState } from '../../context/cartState';
+import { Link } from 'react-router-dom';
 
 function Side() {
     const [{ cardDisplay }, dispatch] = useCartState()

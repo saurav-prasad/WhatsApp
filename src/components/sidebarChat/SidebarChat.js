@@ -2,11 +2,10 @@ import { Avatar } from '@mui/material'
 import React from 'react'
 import './sidebarchat.css'
 import { useCartState } from '../../context/cartState';
-import { useCartState1 } from '../../context copy/cartState';
+import { Link } from 'react-router-dom';
 
 function SidebarChat(props) {
     const [{ cardDisplay }, dispatch] = useCartState()
-    const [{ }, dispatch1] = useCartState1()
 
     const sidebarChatAvatar = () => {
         console.log("object", cardDisplay);
@@ -17,18 +16,12 @@ function SidebarChat(props) {
         })
     }
     const setChat = () => {
-       
+
         if (window.screen.width <= 600) {
             document.getElementById('sidebar').style.display = 'none'
             document.getElementById('side').style.display = 'none'
             document.getElementById('chat').style.display = 'flex'
         }
-
-        dispatch1({
-            type: "SET_CHAT",
-            chatImg: props.dp,
-            chatName: props.roomName,
-        })
     }
 
     return (
@@ -41,11 +34,12 @@ function SidebarChat(props) {
                         sx={{ width: 47, height: 47 }}
                     />
                 </span>
-
-                <div className="sidechatInfo" onClick={setChat} >
-                    <h4>{props.roomName}</h4>
-                    <p>{props.message}</p>
-                </div>
+                <Link className='sidebarLink' to={`/room/${props.id}`}>
+                    <div className="sidechatInfo" onClick={setChat} >
+                        <h4>{props.roomName}</h4>
+                        <p>{props.message}</p>
+                    </div>
+                </Link>
             </div>
             <hr aria-hidden="true" className="a-spacing-small a-divider-normal" />
         </>

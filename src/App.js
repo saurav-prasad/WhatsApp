@@ -16,25 +16,30 @@ function App() {
   return (
     <>
       <div className="App">
-        {/* <RouterProvider router={
+        <RouterProvider router={
           createBrowserRouter([
             {
               path: "/",
-              element: <div className="App">
+              element: 
                 <div className="container" style={appContainer}>
                   <Side />
                   <Sidebar />
                   <Chat />
                 </div>
-                <Dp />
-              </div>,
+              ,
             },
             {
-              path: '/mobile-messages',
-              element: '',
+              path: "/room/:roomId",
+              element: 
+                <div className="container" style={appContainer}>
+                  <Side />
+                  <Sidebar />
+                  <Chat/>
+                </div>
+             ,
             },
-          ])} /> */}
-          <Login/>
+          ])} />
+        <Dp />
       </div>
     </>
   );

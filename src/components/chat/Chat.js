@@ -1,7 +1,6 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './chat.css'
 import { Avatar } from '@mui/material'
-import { useCartState1 } from '../../context copy/cartState'
 import { useCartState } from '../../context/cartState'
 import VideocamOutlinedIcon from '@mui/icons-material/VideocamOutlined';
 import CallOutlinedIcon from '@mui/icons-material/CallOutlined';
@@ -11,16 +10,20 @@ import AttachFileRoundedIcon from '@mui/icons-material/AttachFileRounded';
 import MicRoundedIcon from '@mui/icons-material/MicRounded';
 import ArrowBackRoundedIcon from '@mui/icons-material/ArrowBackRounded';
 import SendRoundedIcon from '@mui/icons-material/SendRounded';
+import db from '../../firebase';
+import { collection, query, onSnapshot, doc, getDoc } from "firebase/firestore";
+import { useParams } from 'react-router-dom'
 
-function Chat() {
+function Chat(props) {
+    const { roomId } = useParams()
     const [input, setInput] = useState("")
-    const [{ chatImg, chatName }, dispatch] = useCartState1()
-    const [{ }, dispatch1] = useCartState()
+    const [user, setUser] = useState({})
+    const [{ }, dispatch] = useCartState()
     const sidebarChatAvatar = () => {
-        dispatch1({
+        dispatch({
             type: "SET_CARD",
-            dpImg: chatImg,
-            dpName: chatName,
+            dpImg: user?.roomDp,
+            dpName: user?.roomName,
         })
     }
 
@@ -32,11 +35,28 @@ function Chat() {
     const setSendBtn = () => {
         setInput('')
     }
-    const hideChat = ()=>{
+    const hideChat = () => {
         document.getElementById('sidebar').style.display = 'flex'
         document.getElementById('side').style.display = 'flex'
         document.getElementById('chat').style.display = 'none'
     }
+
+
+    useEffect(() => {
+        const unsubscribe = async () => {
+            const docRef = doc(db, "rooms", roomId);
+            const docSnap = await getDoc(docRef);
+
+            if (docSnap.exists()) {
+                setUser(docSnap.data());
+            } else {
+                // docSnap.data() will be undefined in this case
+                console.log("No such document!");
+            }
+        }
+        return () => unsubscribe()
+    }, [roomId])
+
     return (
         <>
             <div className='chat' id='chat'>
@@ -47,11 +67,11 @@ function Chat() {
                         <Avatar className='chatAvatar'
                             onClick={sidebarChatAvatar}
                             alt="Remy Sharp"
-                            src={chatImg}
+                            src={user.roomDp}
                             sx={{ width: 40, height: 40 }}
                         />
                         <div className='chatHeaderRight'>
-                            <h3>{chatName}</h3>
+                            <h3>{user.roomName}</h3>
                             <p>Last seen</p>
                         </div>
                     </div>
@@ -79,8 +99,8 @@ function Chat() {
                         {/* input bar */}
                         <input value={input} onChange={(e) => { setSendBtn(); setInput(e.target.value) }} type="text" placeholder='Type a message' className='chatInput' />
 
-                        <MicRoundedIcon  style={input.length <1 ?{display:"block"}:{display:'none'}} sx={{ width: 23, height: 23 }} className='chatIcon' />
-                        <SendRoundedIcon onClick={setSendBtn} style={input.length <1 ?{display:"none"}:{display:'block'}} sx={{ width: 23, height: 23 }} className='chatIcon' />
+                        <MicRoundedIcon style={input.length < 1 ? { display: "block" } : { display: 'none' }} sx={{ width: 23, height: 23 }} className='chatIcon' />
+                        <SendRoundedIcon onClick={setSendBtn} style={input.length < 1 ? { display: "none" } : { display: 'block' }} sx={{ width: 23, height: 23 }} className='chatIcon' />
                     </div>
                 </div>
             </div>

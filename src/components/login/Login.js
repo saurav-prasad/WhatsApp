@@ -1,6 +1,6 @@
 import React from 'react'
 import './login.css'
-import { getAuth, signInWithPopup, GoogleAuthProvider, FacebookAuthProvider } from "firebase/auth";
+import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 
 function Login() {
     // * Google Login

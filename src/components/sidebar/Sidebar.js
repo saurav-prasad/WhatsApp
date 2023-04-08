@@ -26,10 +26,12 @@ function Sidebar() {
         setCreateChatDisplay({ display: 'block' })
     }
     const newRoom = async () => {
+
         // * CREATE
         if(newRoomName){
         await addDoc(collection(db, "rooms"), {
             roomName: newRoomName,
+            roomDp: `https://api.dicebear.com/api/adventurer/${Math.random()*200}.svg`,
         });
     }
     setNewRoomName('')

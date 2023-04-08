@@ -3,6 +3,11 @@
     justify-content: flex-start;
     align-items: center;
     margin: 5px 0px;
+    padding: 5px;
+    border-radius: 10px;
+}
+.sidebarchat:hover{
+  background-color: #cccccc38;
 }
 
 .sidechatInfo {
@@ -12,9 +17,12 @@
     cursor: pointer;
     margin-left: 5px;
 }
-
-.sidechatInfo h3 {
-    font-weight: 500;
+.sidebarLink{
+    all: unset;
+    width: 100%;
+}
+.sidechatInfo h4 {
+    font-weight: 600;
 }
 
 .sidechatInfo p {
@@ -34,5 +42,7 @@ hr {
 }
 
 .sidechatSpan {
+    border: 1px solid #bdbdbd66;
+    border-radius: 100%;
     cursor: pointer;
 }
