@@ -9,18 +9,21 @@ import Chat from './components/chat/Chat';
 import Sidebar from './components/sidebar/Sidebar';
 import { useCartState } from './context/cartState';
 import Login from './components/login/Login';
+import { useLoginState } from './components/loginContext/loginState';
 
 
 function App() {
   const [{ appContainer }, dispatch] = useCartState()
-  return (
+  const [{ user }, Logindispatch] = useLoginState();
+
+  return !user ? (<Login />) : (
     <>
       <div className="App">
         <RouterProvider router={
           createBrowserRouter([
             {
               path: "/",
-              element: 
+              element:
                 <div className="container" style={appContainer}>
                   <Side />
                   <Sidebar />
@@ -30,13 +33,13 @@ function App() {
             },
             {
               path: "/room/:roomId",
-              element: 
+              element:
                 <div className="container" style={appContainer}>
                   <Side />
                   <Sidebar />
-                  <Chat/>
+                  <Chat />
                 </div>
-             ,
+              ,
             },
           ])} />
         <Dp />

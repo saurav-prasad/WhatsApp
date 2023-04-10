@@ -1,8 +1,11 @@
 import React from 'react'
 import './login.css'
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { useLoginState } from '../loginContext/loginState';
 
 function Login() {
+    const [{ user }, dispatch] = useLoginState()
+
     // * Google Login
     const auth = getAuth();
     const googleLogin = () => {
@@ -19,6 +22,10 @@ function Login() {
                 console.log("user", user);
                 console.log("token", token);
                 console.log("credential", credential);
+                dispatch({
+                    user: user,
+                    type: 'SET_USER',
+                })
             }).catch((error) => {
                 // Handle Errors here.
                 console.log(error);

@@ -11,14 +11,14 @@ import MicRoundedIcon from '@mui/icons-material/MicRounded';
 import ArrowBackRoundedIcon from '@mui/icons-material/ArrowBackRounded';
 import SendRoundedIcon from '@mui/icons-material/SendRounded';
 import db from '../../firebase';
-import { collection, query, onSnapshot, doc, getDoc } from "firebase/firestore";
+import { doc, getDoc } from "firebase/firestore";
 import { useParams } from 'react-router-dom'
 
-function Chat(props) {
+function Chat() {
     const { roomId } = useParams()
     const [input, setInput] = useState("")
     const [user, setUser] = useState({})
-    const [{ }, dispatch] = useCartState()
+    const [{}, dispatch] = useCartState()
     const sidebarChatAvatar = () => {
         dispatch({
             type: "SET_CARD",
@@ -41,7 +41,6 @@ function Chat(props) {
         document.getElementById('chat').style.display = 'none'
     }
 
-
     useEffect(() => {
         const unsubscribe = async () => {
             const docRef = doc(db, "rooms", roomId);
@@ -54,7 +53,7 @@ function Chat(props) {
                 console.log("No such document!");
             }
         }
-        return () => unsubscribe()
+        unsubscribe()
     }, [roomId])
 
     return (

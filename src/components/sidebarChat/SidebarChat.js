@@ -5,10 +5,9 @@ import { useCartState } from '../../context/cartState';
 import { Link } from 'react-router-dom';
 
 function SidebarChat(props) {
-    const [{ cardDisplay }, dispatch] = useCartState()
+    const [{}, dispatch] = useCartState()
 
     const sidebarChatAvatar = () => {
-        console.log("object", cardDisplay);
         dispatch({
             type: "SET_CARD",
             dpImg: props.dp,

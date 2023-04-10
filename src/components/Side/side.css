@@ -16,10 +16,25 @@
 .sideTop {}
 
 .chatIcon,
-.userIcon,
 .statusIcon,
 .logoutIcon {
     margin: 10px 0px;
     cursor: pointer;
     color: rgb(0, 0, 0);
+}
+.userIcon{
+    margin: 10px 0px;
+}
+.userIcon {
+    cursor: default;
+}
+
+.logoutIcon {
+    cursor: pointer;
+    border-radius: 20px;
+    padding: 8px;
+}
+
+.logoutIcon:hover {
+    background-color: #cccccc38;
 }
